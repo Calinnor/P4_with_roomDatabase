@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.lamzone.mareunion.R;
 import com.lamzone.mareunion.controler.fragment.DatePickerFragment;
-import com.lamzone.mareunion.di.DI;
+import com.lamzone.mareunion.injections.di.DI;
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
 import com.lamzone.mareunion.model.services.LocalApiPlace;
 import com.lamzone.mareunion.model.items.Meeting;

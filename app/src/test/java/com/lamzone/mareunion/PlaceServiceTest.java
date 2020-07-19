@@ -1,6 +1,6 @@
 package com.lamzone.mareunion;
 
-import com.lamzone.mareunion.di.DI;
+import com.lamzone.mareunion.injections.di.DI;
 import com.lamzone.mareunion.model.items.Meeting;
 import com.lamzone.mareunion.model.items.PlaceItem;
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
@@ -24,7 +24,7 @@ public class PlaceServiceTest {
 
     private List<Meeting> mMeetingPlaceFiltered = new ArrayList<>();
 
-    Meeting meetingOne = new Meeting(R.drawable.bleu,
+    Meeting meetingOne = new Meeting(meetingId, R.drawable.bleu,
             "Test réunion: Objet ",
             "- 8h30 -",
             "10h00",
@@ -45,14 +45,14 @@ public class PlaceServiceTest {
     @Test
     public void getPlaceWithSuccess() {
         assertEquals(mLocalApiPlace.getPlaceItem().size(), 10);
-        assertTrue(mLocalApiPlace.getPlaceItem().get(1).getmPlaceName().contains("2"));
+        assertTrue(mLocalApiPlace.getPlaceItem().get(1).getPlaceName().contains("2"));
     }
 
     @Test
     public void getPlaceWithNoSuccess(){
         PlaceItem expectedPlaceItem = mLocalApiPlace.getPlaceItem().get(0);
         assertNotNull(expectedPlaceItem);
-        assertFalse(expectedPlaceItem.getmPlaceName().contains("3"));
+        assertFalse(expectedPlaceItem.getPlaceName().contains("3"));
     }
 
     @Test(expected = IndexOutOfBoundsException.class)

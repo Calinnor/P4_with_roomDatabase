@@ -1,6 +1,6 @@
 package com.lamzone.mareunion;
 
-import com.lamzone.mareunion.di.DI;
+import com.lamzone.mareunion.injections.di.DI;
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
 import com.lamzone.mareunion.model.items.Meeting;
 
@@ -22,7 +22,7 @@ public class LocalMeetingServiceTest {
 
     private LocalApiMeeting mLocalApiMeeting;
 
-    Meeting meetingOne = new Meeting(R.drawable.bleu,
+    Meeting meetingOne = new Meeting(meetingId, R.drawable.bleu,
             "Test réunion: Objet ",
             "- 8h30 -",
             "10h00",

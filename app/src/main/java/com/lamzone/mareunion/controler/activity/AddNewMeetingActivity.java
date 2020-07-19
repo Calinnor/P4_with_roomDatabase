@@ -28,7 +28,7 @@ import android.widget.Toast;
 import com.lamzone.mareunion.R;
 import com.lamzone.mareunion.controler.fragment.DatePickerFragment;
 import com.lamzone.mareunion.controler.fragment.TimePickeFragment;
-import com.lamzone.mareunion.di.DI;
+import com.lamzone.mareunion.injections.di.DI;
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
 import com.lamzone.mareunion.model.services.LocalApiPlace;
 import com.lamzone.mareunion.model.items.Meeting;
@@ -82,7 +82,9 @@ public class AddNewMeetingActivity extends AppCompatActivity implements TimePick
     TextView placeChoice;
     @BindView(R.id.spinner_place)
     Spinner spinnerPlace;
-    private int clickedColorPlaceTag;
+    private long placeItemId;
+    private int pkMeetingId;
+    private long clickedColorPlaceTag;
     private ArrayList<PlaceItem> mPlaceItemsList;
     private String mMeetingPlace = "";
 
@@ -172,7 +174,7 @@ public class AddNewMeetingActivity extends AppCompatActivity implements TimePick
     }
 
     public void addNewMeeting() {
-        Meeting meeting = new Meeting(clickedColorPlaceTag,
+        Meeting meeting = new Meeting(placeItemId, pkMeetingId, (int) clickedColorPlaceTag,
                 mObjectOfMeeting,
                 "-" + startTimeDialogBox.getText().toString() + "-",
                 endTimeDialogBox.getText().toString(),
@@ -220,8 +222,8 @@ public class AddNewMeetingActivity extends AppCompatActivity implements TimePick
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 PlaceItem clickedPlaceItem = (PlaceItem) parent.getItemAtPosition(position);
-                placeChoice.setText(clickedPlaceItem.getmPlaceName());
-                clickedColorPlaceTag = clickedPlaceItem.getmPlaceColorTag();
+                placeChoice.setText(clickedPlaceItem.getPlaceName());
+                clickedColorPlaceTag = clickedPlaceItem.getPlaceColorTag();
                 mMeetingPlace = String.valueOf(placeChoice.getText());
             }
 

@@ -1,4 +1,4 @@
-package com.lamzone.mareunion.di;
+package com.lamzone.mareunion.injections.di;
 
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
 import com.lamzone.mareunion.model.services.LocalApiPlace;
