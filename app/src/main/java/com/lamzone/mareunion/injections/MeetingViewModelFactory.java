@@ -10,7 +10,7 @@ import com.lamzone.mareunion.view.viewModel.MeetingViewModel;
 
 import java.util.concurrent.Executor;
 
-class MeetingViewModelFactory implements ViewModelProvider.Factory {
+public class MeetingViewModelFactory implements ViewModelProvider.Factory {
     /**
      * add private final DataRepo(2)+executor for asyncTask
      */

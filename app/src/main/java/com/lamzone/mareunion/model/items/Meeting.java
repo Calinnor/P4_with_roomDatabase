@@ -22,7 +22,7 @@ public class Meeting {
     private String meetingDate;
     private long meetingDateDisponibility;
 
-    @ColumnInfo(name = "placeItemId", index = true)
+    @ColumnInfo(name = "placeItemId", index = true)//indexing is usefull when ui may search in large bdd
     private long placeItemId;
 
     public Meeting(long placeItemId, int pkMeetingId, int meetingColorTag, String meetingSubject,
