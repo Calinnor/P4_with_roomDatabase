@@ -3,7 +3,7 @@ package com.lamzone.mareunion.injections.di;
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
 import com.lamzone.mareunion.model.services.LocalApiPlace;
 import com.lamzone.mareunion.model.services.LocalMeetingService;
-import com.lamzone.mareunion.model.services.PlaceServiceLocal;
+import com.lamzone.mareunion.model.services.LocalPlaceService;
 
 /**
  * create instance of LocalMeetingService using ApiService service
@@ -14,7 +14,7 @@ public class DI {
      * implement FakeApi
      */
     private static LocalApiMeeting mMeetingApi = new LocalMeetingService();
-    private static LocalApiPlace mLocalApiPlace = new PlaceServiceLocal();
+    private static LocalApiPlace mLocalApiPlace = new LocalPlaceService();
 
     /**
      * @return an instance of FakeApi. Usable in app to collect values
@@ -35,6 +35,6 @@ public class DI {
     }
 
     public static LocalApiPlace getNewInstancePlaceApi() {
-        return new PlaceServiceLocal();
+        return new LocalPlaceService();
     }
 }

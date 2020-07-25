@@ -14,6 +14,10 @@ public interface LocalApiPlace {
 
     List<PlaceItem> getPlaceItem();
 
+    void getCurrentPlaceItem(int placeItemId);
+
+    void updateHeader(PlaceItem placeItem);
+
     List<String> getPlaceNames();
 
 }

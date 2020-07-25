@@ -14,7 +14,13 @@ public interface LocalApiMeeting {
 
     void deleteMeeting(Meeting meeting);
 
-    void addNewMeeting(Meeting meeting);
+    void getMeetingsForOnePlaceItem(int placeItemId);
+
+    void createDataMeeting(Meeting meeting);
+
+    void updateDataMeeting(Meeting meeting);
+
+    void updateMeetingsList(List<Meeting> meetings);
 
     List<Meeting> filteringOptions(String filteredOption);
 

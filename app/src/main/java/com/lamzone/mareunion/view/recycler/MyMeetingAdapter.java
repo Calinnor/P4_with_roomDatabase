@@ -8,13 +8,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.lamzone.mareunion.R;
+import com.lamzone.mareunion.injections.DataInjection;
+import com.lamzone.mareunion.injections.MeetingViewModelFactory;
 import com.lamzone.mareunion.model.items.Meeting;
 import com.lamzone.mareunion.view.event.DeleteMeetingEvent;
+import com.lamzone.mareunion.view.viewModel.MeetingViewModel;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -29,6 +33,10 @@ import butterknife.ButterKnife;
  * 9/implemente class.viewholder
  */
 public class MyMeetingAdapter extends RecyclerView.Adapter<MyMeetingAdapter.MeetingViewHolder> {
+
+    private MeetingViewModel meetingViewModel;
+    private MyMeetingAdapter myMeetingAdapter;
+    private static int USER_ID = 1;
 
     private List<Meeting> mMeetings;
 
@@ -71,6 +79,7 @@ public class MyMeetingAdapter extends RecyclerView.Adapter<MyMeetingAdapter.Meet
         meetingHolder.mMeetingHour.setText(currentItem.getMeetingStartHour());
         meetingHolder.mMeetingPlaceName.setText(currentItem.getMeetingPlaceName());
         meetingHolder.mMeetingParticipantsInformations.setText(currentItem.getMeetingParticipantsInformations());
+
 
         /**
          * evente delete 2/
@@ -125,5 +134,12 @@ public class MyMeetingAdapter extends RecyclerView.Adapter<MyMeetingAdapter.Meet
         this.mMeetings = meetings;
         notifyDataSetChanged();
     }
+
+    private void configureViewModel(){
+        MeetingViewModelFactory mViewModelFactory = DataInjection.provideMeetingViewModelFactory(this);
+        this.meetingViewModel = ViewModelProviders.of(this, mViewModelFactory).get(MeetingViewModel.class);
+        this.meetingViewModel.init(USER_ID);
+    }
+
 
 }

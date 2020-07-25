@@ -183,7 +183,7 @@ public class AddNewMeetingActivity extends AppCompatActivity implements TimePick
                 enterDate.getText().toString(),
                 dateDisponibility = timeDateEnd.getTime()
         );
-        mLocalApiMeeting.addNewMeeting(meeting);
+        mLocalApiMeeting.createDataMeeting(meeting);
         finish();
     }
 
@@ -348,10 +348,12 @@ public class AddNewMeetingActivity extends AppCompatActivity implements TimePick
                 mMeetingStartHour = "";
             } else {
                 addNewMeeting();
+                //mainMeetingActivity.createDataMeeting();
             }
 
         } else {
             addNewMeeting();
+            //mainMeetingActivity.createDataMeeting();
         }
     }
 

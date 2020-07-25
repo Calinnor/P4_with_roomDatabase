@@ -15,15 +15,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.lamzone.mareunion.R;
 import com.lamzone.mareunion.controler.fragment.DatePickerFragment;
-import com.lamzone.mareunion.injections.DataInjection;
-import com.lamzone.mareunion.injections.MeetingViewModelFactory;
 import com.lamzone.mareunion.injections.di.DI;
 import com.lamzone.mareunion.model.services.LocalApiMeeting;
 import com.lamzone.mareunion.model.services.LocalApiPlace;
@@ -31,7 +28,6 @@ import com.lamzone.mareunion.model.items.Meeting;
 import com.lamzone.mareunion.utils.DateUtils;
 import com.lamzone.mareunion.view.event.DeleteMeetingEvent;
 import com.lamzone.mareunion.view.recycler.MyMeetingAdapter;
-import com.lamzone.mareunion.view.viewModel.MeetingViewModel;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -65,8 +61,6 @@ public class MainMeetingActivity extends AppCompatActivity implements DatePicker
     TextView textViewNothingToShow;
 
     private MyMeetingAdapter myMeetingAdapter;
-//    private MeetingViewModel meetingViewModel;
-//    private static int USER_ID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +80,7 @@ public class MainMeetingActivity extends AppCompatActivity implements DatePicker
         /**
          * 5/ once name class of recycler given create class (MyMeetingAdapter)
          */
+
     }
 
     @Override
@@ -212,14 +207,5 @@ public class MainMeetingActivity extends AppCompatActivity implements DatePicker
             mRecyclerView.setVisibility(View.VISIBLE);
         }
     }
-
-//    private void configureViewModel(){
-//        MeetingViewModelFactory mMeetingViewModelFactory = DataInjection.provideMeetingViewModelFactory(this);
-//        this.meetingViewModel = ViewModelProviders.of(this, mMeetingViewModelFactory).get(MeetingViewModel.class);
-//        this.meetingViewModel.init(USER_ID);
-//    }
-
-
-
 
 }

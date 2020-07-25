@@ -18,6 +18,9 @@ import java.util.ArrayList;
 
 public class PlaceAdapter extends ArrayAdapter<PlaceItem> {
 
+    private TextView placeName;
+    private ImageView placeColorTag;
+
     public PlaceAdapter(Context context, ArrayList<PlaceItem> PlaceList) {
         super(context, 0, PlaceList);
     }
@@ -38,8 +41,8 @@ public class PlaceAdapter extends ArrayAdapter<PlaceItem> {
             convertView = LayoutInflater.from(getContext()).inflate(
                     R.layout.spinner_places, parent, false);
         }
-        ImageView placeColorTag = convertView.findViewById(R.id.place_color_tag);
-        TextView placeName = convertView.findViewById(R.id.place_name);
+        placeColorTag = convertView.findViewById(R.id.place_color_tag);
+        placeName = convertView.findViewById(R.id.place_name);
         PlaceItem currentItem = getItem(position);
         if (currentItem != null) { //execption if current item !=null
             placeColorTag.setImageResource((int) currentItem.getPlaceColorTag());
@@ -47,5 +50,6 @@ public class PlaceAdapter extends ArrayAdapter<PlaceItem> {
         }
         return convertView;
     }
+
 
 }
